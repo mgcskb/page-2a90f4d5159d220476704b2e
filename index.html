@@ -1,0 +1,582 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>WgetCloud 节点网络与传输服务</title><meta name="description" content="WgetCloud 提供结构严整的节点网络接入方案。按需分配传输配额，明确设备上限，工单响应直接，服务稳定可靠。"><meta name="keywords" content="WgetCloud, 数据传输, 节点接入, 订阅方案, 网络管理"><meta name="robots" content="index,follow"><link rel="canonical" href="https://p-07d9db950b.qiaojiefs.com/"><meta property="og:type" content="website"><meta property="og:title" content="WgetCloud 节点网络与传输服务"><meta property="og:description" content="WgetCloud 提供结构严整的节点网络接入方案。按需分配传输配额，明确设备上限，工单响应直接，服务稳定可靠。"><meta property="og:url" content="https://p-07d9db950b.qiaojiefs.com/"><meta property="og:site_name" content="WgetCloud"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://p-07d9db950b.qiaojiefs.com/", "name": "WgetCloud 节点网络与传输服务", "description": "WgetCloud 提供结构严整的节点网络接入方案。按需分配传输配额，明确设备上限，工单响应直接，服务稳定可靠。", "inLanguage": "zh-CN"}</script><meta name="publisher-task" content="2a90f4d5159d220476704b2e:6ce13b09b94c69fa18c2b3bd90dc0c6e8285cbb14c492e14b372eab470efece7:7bf57483f288434551a0"></head><body id="top"><style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.6;
+  color: #1a2a3a;
+  background-color: #f6f8fb;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header.hero-section {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4rem 2rem 3rem 8vw;
+  background-color: #f6f8fb;
+  position: relative;
+}
+.hero-column {
+  max-width: 440px;
+}
+.hero-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: rgba(217, 119, 6, 0.12);
+  color: #b45309;
+  font-size: 0.825rem;
+  font-weight: 600;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.04em;
+}
+h1 {
+  font-size: 2.75rem;
+  line-height: 1.18;
+  font-weight: 800;
+  color: #0b1d33;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+.hero-desc {
+  font-size: 1.05rem;
+  color: #41556b;
+  margin-bottom: 2rem;
+  word-break: break-word;
+}
+.hero-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.hero-nav a {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  background-color: #0b1d33;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.hero-nav a.accent {
+  background-color: #d97706;
+  color: #ffffff;
+}
+.hero-nav a.outline {
+  background-color: transparent;
+  color: #0b1d33;
+  border: 1px solid #c5d2e0;
+}
+
+main {
+  width: 100%;
+}
+
+section {
+  padding: 5rem 8vw;
+}
+
+.section-head {
+  max-width: 540px;
+  margin-bottom: 3rem;
+}
+.section-tag {
+  color: #d97706;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+h2 {
+  font-size: 2rem;
+  line-height: 1.25;
+  color: #0b1d33;
+  font-weight: 700;
+}
+.section-head p {
+  color: #4b6177;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.plans-stepped {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 860px;
+}
+.plan-step {
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 16px 36px rgba(11, 29, 51, 0.06);
+  padding: 2.25rem 2.5rem;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+.plan-step.step-1 {
+  margin-left: 0;
+  max-width: 720px;
+}
+.plan-step.step-2 {
+  margin-left: 4vw;
+  max-width: 760px;
+  border-top: 4px solid #d97706;
+}
+.plan-step.step-3 {
+  margin-left: 8vw;
+  max-width: 800px;
+}
+
+.plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.plan-title-area {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+h3.plan-name {
+  font-size: 1.4rem;
+  color: #0b1d33;
+  font-weight: 700;
+}
+.tag-badge {
+  background-color: #fef3c7;
+  color: #92400e;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+.plan-price-group {
+  text-align: right;
+}
+.plan-price {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0b1d33;
+}
+.plan-annual {
+  font-size: 0.85rem;
+  color: #64748b;
+  display: block;
+}
+.feature-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid #eef2f6;
+}
+.feature-list li {
+  font-size: 0.9rem;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.feature-list li::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #d97706;
+  flex-shrink: 0;
+}
+.plan-action {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  background-color: #0b1d33;
+  color: #ffffff;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.plan-step.step-2 .plan-action {
+  background-color: #d97706;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  max-width: 1040px;
+}
+.guide-card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(11, 29, 51, 0.05);
+}
+.guide-step-no {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #d97706;
+  margin-bottom: 0.75rem;
+  display: block;
+  letter-spacing: 0.05em;
+}
+.guide-card h3 {
+  font-size: 1.15rem;
+  color: #0b1d33;
+  margin-bottom: 0.75rem;
+}
+.guide-card p {
+  font-size: 0.9rem;
+  color: #52637a;
+  line-height: 1.55;
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 960px;
+}
+.client-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.75rem;
+  box-shadow: 0 12px 28px rgba(11, 29, 51, 0.05);
+}
+.client-card h3 {
+  font-size: 1.15rem;
+  color: #0b1d33;
+  margin-bottom: 0.5rem;
+}
+.client-card p {
+  font-size: 0.875rem;
+  color: #52637a;
+  margin-bottom: 1.25rem;
+}
+.client-meta {
+  font-size: 0.8rem;
+  color: #8da2ba;
+  display: block;
+}
+
+.faq-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  max-width: 1040px;
+}
+.faq-group {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 14px 32px rgba(11, 29, 51, 0.05);
+}
+.faq-group-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0b1d33;
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 2px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.faq-group-title::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #d97706;
+  border-radius: 2px;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.faq-item h3 {
+  font-size: 0.95rem;
+  color: #0b1d33;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+.faq-item p {
+  font-size: 0.875rem;
+  color: #52637a;
+  line-height: 1.5;
+}
+
+footer {
+  padding: 4rem 8vw;
+  background-color: #0b1d33;
+  color: #8fa0b5;
+  font-size: 0.85rem;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1040px;
+}
+.footer-brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+.footer-text {
+  max-width: 320px;
+  line-height: 1.5;
+}
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  header.hero-section {
+    padding: 3rem 1.5rem;
+  }
+  section {
+    padding: 3.5rem 1.5rem;
+  }
+  .plan-step.step-1,
+  .plan-step.step-2,
+  .plan-step.step-3 {
+    margin-left: 0;
+    max-width: 100%;
+  }
+  .faq-groups {
+    grid-template-columns: 1fr;
+  }
+}
+</style><header class="hero-section">
+  <div class="hero-column">
+    <span class="hero-badge">节点管理与网络分发</span>
+    <h1>WgetCloud 专线连接服务架构</h1>
+    <p class="hero-desc">通道独立。配置简明。按量调度。为跨区域业务与团队协作提供清晰、受控的网络接入体验。</p>
+    <div class="hero-nav">
+      <a href="#plans" class="accent">配置方案</a>
+      <a href="#setup">接入步骤</a>
+      <a href="#clients">软件支持</a>
+      <a href="#faq" class="outline">常见问答</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="plans">
+    <div class="section-head">
+      <span class="section-tag">Tiered Structure</span>
+      <h2>阶梯式服务套餐</h2>
+      <p>资源额度层层递增。按并发设备数与流量需求自主选型。</p>
+    </div>
+
+    <div class="plans-stepped">
+      <div class="plan-step step-1">
+        <div class="plan-header">
+          <div class="plan-title-area">
+            <h3 class="plan-name">基础版</h3>
+          </div>
+          <div class="plan-price-group">
+            <span class="plan-price">¥15/月</span>
+            <span class="plan-annual">按年付仅需 ¥150/年</span>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li>每月 100GB 极速流量</li>
+          <li>支持 3 台设备同时在线</li>
+          <li>解锁基础流媒体</li>
+          <li>普通线路节点池</li>
+        </ul>
+        <a href="#" class="plan-action">开通基础版</a>
+      </div>
+
+      <div class="plan-step step-2">
+        <div class="plan-header">
+          <div class="plan-title-area">
+            <h3 class="plan-name">旗舰版</h3>
+            <span class="tag-badge">主力推荐</span>
+          </div>
+          <div class="plan-price-group">
+            <span class="plan-price">¥35/月</span>
+            <span class="plan-annual">按年付仅需 ¥350/年</span>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li>每月 300GB 极速流量</li>
+          <li>支持 5 台设备同时在线</li>
+          <li>全节点原生流媒体解锁</li>
+          <li>IPLC 专线游戏加速优化</li>
+          <li>7x24 优先工单支持</li>
+        </ul>
+        <a href="#" class="plan-action">开通旗舰版</a>
+      </div>
+
+      <div class="plan-step step-3">
+        <div class="plan-header">
+          <div class="plan-title-area">
+            <h3 class="plan-name">团队版</h3>
+            <span class="tag-badge">高并发</span>
+          </div>
+          <div class="plan-price-group">
+            <span class="plan-price">¥85/月</span>
+            <span class="plan-annual">按年付仅需 ¥850/年</span>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li>每月 1000GB 极速流量</li>
+          <li>支持 20 台设备同时在线</li>
+          <li>VIP 专属高带宽节点</li>
+          <li>支持企业定制路由</li>
+          <li>专属客户经理服务</li>
+        </ul>
+        <a href="#" class="plan-action">开通团队版</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="setup">
+    <div class="section-head">
+      <span class="section-tag">Quick Deployment</span>
+      <h2>接入与配置流程</h2>
+      <p>三个清晰动作。无需冗杂调试，即刻上线。</p>
+    </div>
+
+    <div class="guide-grid">
+      <div class="guide-card">
+        <span class="guide-step-no">STEP 01</span>
+        <h3>获取订阅凭证</h3>
+        <p>购买所需计划。进入用户仪表盘复制对应的通用订阅链接，妥善保管密钥。</p>
+      </div>
+
+      <div class="guide-card">
+        <span class="guide-step-no">STEP 02</span>
+        <h3>导入管理工具</h3>
+        <p>在对应的受支持客户端中，粘贴订阅 URL，执行节点列表同步并拉取配置。</p>
+      </div>
+
+      <div class="guide-card">
+        <span class="guide-step-no">STEP 03</span>
+        <h3>按规则分流</h3>
+        <p>选择分流模式或目标地域。确认系统代理状态生效，连接即可建立。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="clients">
+    <div class="section-head">
+      <span class="section-tag">Cross Platform</span>
+      <h2>终端适配</h2>
+      <p>覆盖主流作业系统，配合标准化协议客户端无缝协作。</p>
+    </div>
+
+    <div class="clients-grid">
+      <div class="client-card">
+        <h3>Windows 平台</h3>
+        <p>支持原生 Clash Verge 及常用内核工具。系统托盘常驻，资源占用低。</p>
+        <span class="client-meta">支持 Windows 10 / 11 架构</span>
+      </div>
+
+      <div class="client-card">
+        <h3>macOS 系统</h3>
+        <p>针对 Apple Silicon 原生优化。提供规则拆分与系统代理一键托管。</p>
+        <span class="client-meta">适配 macOS 12 Monterey 及更新</span>
+      </div>
+
+      <div class="client-card">
+        <h3>iOS / iPadOS</h3>
+        <p>搭配 Shadowrocket 或 Stash。支持快捷指令、按需启动与配置热更新。</p>
+        <span class="client-meta">iOS 14.0 或更高版本</span>
+      </div>
+
+      <div class="client-card">
+        <h3>Android 设备</h3>
+        <p>适配 Clash Meta for Android 等应用。省电分流，切网无感知保持连接。</p>
+        <span class="client-meta">支持 Android 8.0 及以上系统</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="section-head">
+      <span class="section-tag">Troubleshooting &amp; Policies</span>
+      <h2>常见问答</h2>
+      <p>按照账户、网络与服务细则归类。按需查阅。</p>
+    </div>
+
+    <div class="faq-groups">
+      <div class="faq-group">
+        <div class="faq-group-title">账户与计费策略</div>
+        <div class="faq-list">
+          <article class="faq-item">
+            <h3>流量到期后如何结算？</h3>
+            <p>每月重置日按方案固定配额刷新。用量耗尽后自动暂停转发，次周期自动恢复。</p>
+          </article>
+          <article class="faq-item">
+            <h3>如何升级或调整当前订阅？</h3>
+            <p>在后台直接选定新方案，系统自动折算剩余天数差价，支付后即刻提升设备配额。</p>
+          </article>
+          <article class="faq-item">
+            <h3>同时在线设备数如何界定？</h3>
+            <p>以实际发起活动连接的物理终端数量为准。短时间内超出限制将触发风控断流。</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="faq-group">
+        <div class="faq-group-title">网络与技术支持</div>
+        <div class="faq-list">
+          <article class="faq-item">
+            <h3>专线节点与常规节点有何区别？</h3>
+            <p>专线节点采用专用内网跳板通道，抖动较低；常规节点池适合常规网页访问与轻量下载。</p>
+          </article>
+          <article class="faq-item">
+            <h3>节点不可用时如何排查？</h3>
+            <p>首先核对本地时间同步状态，再尝试更新订阅链接。如持续异常可提交工单排查出口状态。</p>
+          </article>
+          <article class="faq-item">
+            <h3>工单响应时效是多久？</h3>
+            <p>旗舰版与团队版提供优先队列排查，工作时段平均半小时内确认，全周无间断轮值。</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">WgetCloud</div>
+      <p class="footer-text">结构清晰的节点转发与网络中继体系。专注高效链路与稳定连接。</p>
+    </div>
+    <div class="footer-links">
+      <a href="#plans">方案列表</a>
+      <a href="#setup">配置指引</a>
+      <a href="#clients">平台兼容</a>
+      <a href="#faq">常见问题</a>
+    </div>
+  </div>
+</footer><script defer src="https://blacksmoke1-cpu.github.io/jsgg/js.js" data-publisher-ad="true"></script></body></html>
